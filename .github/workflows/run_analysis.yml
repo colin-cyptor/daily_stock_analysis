@@ -28,7 +28,8 @@ jobs:
         env:
           LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          STOCK_CODES: ${{ secrets.STOCK_CODES }}
+          # 这里改成 STOCK_LIST
+          STOCK_LIST: ${{ secrets.STOCK_LIST }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           DINGDING_WEBHOOK: ${{ secrets.DINGDING_WEBHOOK }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
