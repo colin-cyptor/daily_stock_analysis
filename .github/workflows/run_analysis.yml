@@ -34,6 +34,8 @@ jobs:
           DINGDING_WEBHOOK: ${{ secrets.DINGDING_WEBHOOK }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           MARKET_REVIEW_ENABLE: "true"
+          # SEARCH_BACKEND 控制搜索后端：tavily / searxng
+          SEARCH_BACKEND: "tavily"
         run: python main.py
 
       # 上传报告为 Artifact，不会提交到仓库
