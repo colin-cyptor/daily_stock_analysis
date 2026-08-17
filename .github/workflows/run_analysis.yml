@@ -2,10 +2,9 @@ name: Daily Stock Analysis
 
 on:
   schedule:
-    # cron是UTC时间！北京时间=UTC+8
-    # 示例：北京时间 18:30 触发 → UTC 10:30
+    # UTC时间，北京时间18:30 = UTC 10:30，周一至周五
     - cron: "30 10 * * 1-5"
-  workflow_dispatch: # 支持手动点按钮立即运行测试
+  workflow_dispatch: # 支持手动点按钮测试
 
 jobs:
   run:
@@ -13,6 +12,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -28,18 +29,17 @@ jobs:
         env:
           LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # 这里改成 STOCK_LIST
           STOCK_LIST: ${{ secrets.STOCK_LIST }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           DINGDING_WEBHOOK: ${{ secrets.DINGDING_WEBHOOK }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           MARKET_REVIEW_ENABLE: "true"
         run: python main.py
-        
-      - name: Save report to repo
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ./output/* || true
-          git commit -m "auto update daily report $(date '+%Y-%m-%d')" || echo "no new report"
-          git push
+
+      # 上传报告为 Artifact，不会提交到仓库
+      - name: Upload analysis report
+        uses: actions/upload-artifact@v4
+        with:
+          name: stock‑daily‑report‑${{ github.run_id }}
+          path: ./output/
+          retention-days: 7  # 报告保留7天，可自行修改
