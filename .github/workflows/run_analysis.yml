@@ -32,7 +32,7 @@ jobs:
           STOCK_LIST: ${{ secrets.STOCK_LIST }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           DINGDING_WEBHOOK: ${{ secrets.DINGDING_WEBHOOK }}
-          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          TAVILY_API_KEYS: ${{ secrets.TAVILY_API_KEYS }}
           MARKET_REVIEW_ENABLE: "true"
           # SEARCH_BACKEND 控制搜索后端：tavily / searxng
           SEARCH_BACKEND: "tavily"
