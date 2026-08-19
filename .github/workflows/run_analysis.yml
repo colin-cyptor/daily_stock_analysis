@@ -27,7 +27,6 @@ jobs:
 
       - name: Run stock analysis
         env:
-          DATA_SOURCE_PRIORITY: "tickflow,akshare,efinance,pytdx,baostock,yfinance,tencent"
           LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           STOCK_LIST: ${{ secrets.STOCK_LIST }}
@@ -35,7 +34,10 @@ jobs:
           DINGDING_WEBHOOK: ${{ secrets.DINGDING_WEBHOOK }}
           TAVILY_API_KEYS: ${{ secrets.TAVILY_API_KEYS }}
           TICKFLOW_API_KEY: ${{ secrets.TICKFLOW_API_KEY }}
-          TICKFLOW_PRIORITY: 0
+          TICKFLOW_PRIORITY: "0"
+          EFINANCE_PRIORITY: "1"
+          AKSHARE_PRIORITY: "2"
+          ENABLE_EASTMONEY_PATCH: "true"
           MARKET_REVIEW_ENABLE: "true"
           # SEARCH_BACKEND 控制搜索后端：tavily / searxng
           SEARCH_BACKEND: "tavily"
