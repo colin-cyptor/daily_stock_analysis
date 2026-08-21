@@ -51,5 +51,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: stock‑daily‑report‑${{ github.run_id }}
-          path: ./output/
+          path: ./reports/
           retention-days: 7  # 报告保留7天，可自行修改
