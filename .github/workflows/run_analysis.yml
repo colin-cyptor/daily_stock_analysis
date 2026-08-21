@@ -39,8 +39,9 @@ jobs:
           TICKFLOW_PRIORITY: "0"
           EFINANCE_PRIORITY: "1"
           AKSHARE_PRIORITY: "2"
-          ENABLE_EASTMONEY_PATCH: "true"
           MARKET_REVIEW_ENABLE: "true"
+          SEARXNG_PUBLIC_INSTANCES_ENABLED: "false"
+          SEARXNG_BASE_URLS: ""
           # SEARCH_BACKEND 控制搜索后端：tavily / searxng
           SEARCH_BACKEND: "tavily"
         run: python main.py
