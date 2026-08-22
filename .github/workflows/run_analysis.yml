@@ -41,6 +41,7 @@ jobs:
           STOCK_LIST: ${{ secrets.STOCK_LIST }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           CUSTOM_WEBHOOK_URLS: ${{ secrets.CUSTOM_WEBHOOK_URLS }}
+          SERPAPI_API_KEYS: ${{ secrets.SERPAPI_API_KEYS }}
           TAVILY_API_KEYS: ${{ secrets.TAVILY_API_KEYS }}
           TICKFLOW_API_KEY: ${{ secrets.TICKFLOW_API_KEY }}
           TICKFLOW_PRIORITY: "0"
@@ -52,8 +53,8 @@ jobs:
           FETCHER_REQUEST_DELAY: "2.5"
           ENABLE_EASTMONEY_PATCH: "true"
           MAX_WORKERS: "1"
-          # SEARCH_BACKEND 控制搜索后端：tavily / searxng
-          SEARCH_BACKEND: "tavily"
+          # SEARCH_BACKEND 控制搜索后端：tavily / searxng / serpapi
+          SEARCH_BACKEND: "serpapi"
         run: |
           if [[ "${{ github.event.inputs.force_run }}" == "true" ]]; then
             python main.py --force-run
