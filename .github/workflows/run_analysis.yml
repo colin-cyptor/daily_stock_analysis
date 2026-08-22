@@ -48,6 +48,7 @@ jobs:
           MARKET_REVIEW_ENABLE: "true"
           SEARXNG_PUBLIC_INSTANCES_ENABLED: "false"
           SEARXNG_BASE_URLS: ""
+          FETCHER_REQUEST_DELAY: "2.5"
           # SEARCH_BACKEND 控制搜索后端：tavily / searxng
           SEARCH_BACKEND: "tavily"
         run: python main.py
