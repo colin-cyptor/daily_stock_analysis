@@ -32,11 +32,12 @@ jobs:
 
       - name: Run stock analysis
         env:
-          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
-          # OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+          # LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}openai
+          # GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LLM_PROVIDER: "openai"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
           STOCK_LIST: ${{ secrets.STOCK_LIST }}
           WECOM_WEBHOOK: ${{ secrets.WECOM_WEBHOOK }}
           CUSTOM_WEBHOOK_URLS: ${{ secrets.CUSTOM_WEBHOOK_URLS }}
