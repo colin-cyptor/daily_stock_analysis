@@ -51,7 +51,12 @@ jobs:
           FETCHER_REQUEST_DELAY: "2.5"
           # SEARCH_BACKEND 控制搜索后端：tavily / searxng
           SEARCH_BACKEND: "tavily"
-        run: python main.py
+        run: |
+          if [[ "${{ github.event.inputs.force_run }}" == "true" ]]; then
+            python main.py --force-run
+          else
+            python main.py
+          fi
 
       # 上传报告为 Artifact，不会提交到仓库
       - name: Upload analysis report
