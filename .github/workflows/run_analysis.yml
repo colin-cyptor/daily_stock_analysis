@@ -5,6 +5,11 @@ on:
     # UTC时间，北京时间18:30 = UTC 10:30，周一至周五
     - cron: "30 10 * * 1-5"
   workflow_dispatch: # 支持手动点按钮测试
+    inputs:
+      force_run:
+        description: 强制运行(非交易日也执行)
+        default: "false"
+        type: boolean
 
 jobs:
   run:
