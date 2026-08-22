@@ -32,7 +32,7 @@ jobs:
 
       - name: Run stock analysis
         env:
-          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}openai
+          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           # LLM_PROVIDER: "openai"
           # OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
