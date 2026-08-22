@@ -51,7 +51,7 @@ jobs:
           SEARXNG_BASE_URLS: ""
           FETCHER_REQUEST_DELAY: "2.5"
           ENABLE_EASTMONEY_PATCH: "true"
-          MAX_WORKERS: "1"
+          # MAX_WORKERS: "1"
           # SEARCH_BACKEND 控制搜索后端：tavily / searxng
           SEARCH_BACKEND: "tavily"
         run: |
