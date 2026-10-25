@@ -53,7 +53,7 @@ jobs:
           FETCHER_REQUEST_DELAY: "2.5"
           ENABLE_EASTMONEY_PATCH: "true"
           MAX_WORKERS: "1"
-          # SEARCH_BACKEND 控制搜索后端：tavily / searxng / serpapi
+          # SEARCH_BACKEND 控制搜索后端：tavily / searxng / serpapi 优先用serpapi
           SEARCH_BACKEND: "serpapi"
         run: |
           if [[ "${{ github.event.inputs.force_run }}" == "true" ]]; then
